@@ -1,0 +1,32 @@
+{% extends 'store/main.html' %}
+{% load static%}
+{% block content %}
+    <div class="row">  
+        {%for product in products%}
+        {% comment %} <img data-product="{{product.id}}" data-action="add" class="chg-wishlist update-cart" src="{% static 'images/heart.png'%}"> {% endcomment %}
+        
+        <div class="col-lg-3">
+            
+            <img class="thumbnail" src="{{product.imageURL}}">
+            <div class="box-element product">
+                <div class="heart" style="display: inline-block;">
+                    <h6><strong>{{product.name}}</strong><h6>
+                    {% comment %} <img data-product={{product.id}} data-action="add" class="btn add-btn update-cart" id="heart-icon" src="{% static 'images/hheart.png' %}"> {% endcomment %}
+                </div>    
+                    <hr>
+                    <h4 style="display: inline-block;float:"><strong>{{product.price|floatformat:2}}</strong></h4>
+                    {% comment %} <p style="text-align: center;">{{product.des}}</p> {% endcomment %}
+                <div class="price" style="margin-bottom:10px;">
+                    <button data-product={{product.id}} data-action="add" class="btn btn-outline-secondary 
+                    add-btn update-cart">Add to Cart</button>
+                    <a class="btn btn-outline-success" href="{% url 'view' %}">View</a>
+
+
+                </div>
+            </div>
+        </div>
+        {%endfor%}
+
+    </div>
+{%endblock%}
+{% comment %} <img src="{% static 'images/cart.png' %}"> {% endcomment %}

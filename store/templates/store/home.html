@@ -1,0 +1,35 @@
+{% extends 'store/main.html' %}
+{% load static%}
+{% block content %}
+<div class="row">  
+    {%for category in categories%}
+    <div class="col-lg-4 text-center">
+        <a href="{% url 'category_products' category.id %}">
+            <img class="thumbnail-home" src="{{ category.imageURL }}" href="{% url 'category_products' category.id %}">
+        </a>
+        <div class="box-element-home product">
+            <hr>
+            <p style="text-align: center;">{{category.description}}</p>
+            <h6 style="text-align: center;"><strong>{{category.name}}</strong><h6>
+           
+        </div>
+    </div>
+    {%endfor%}
+
+    {%for category in categories%}
+    <div class="col-lg-4 text-center">
+        <a href="{% url 'category_products' category.id %}">
+            <img class="thumbnail-home" src="{{ category.imageURL }}" href="{% url 'category_products' category.id %}">
+        </a>
+        <div class="box-element-home product">
+            <hr>
+            <p style="text-align: center;">{{category.description}}</p>
+            <h6 style="text-align: center;"><strong>{{category.name}}</strong><h6>
+           
+        </div>
+    </div>
+    {%endfor%}
+
+
+</div>
+{%endblock%}

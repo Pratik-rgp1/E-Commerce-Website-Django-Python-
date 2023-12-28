@@ -1,0 +1,48 @@
+{% extends 'store/main.html' %}
+{% comment %} smartphones {% endcomment %}
+{% load static %}
+
+{% block content %}
+
+<div class="row">
+    {% for product in catproducts %}
+    <h1 margin>Elevate Life with Our Brilliant {{ category.name}}</h1>
+        <div class="col-lg-3">
+            <img class="thumbnail" src="{{ product.imageURL }}">
+            <div class="box-element product">
+                <div class="heart" style="display: inline-block;">
+                    <h6><strong>{{ product.name }}</strong></h6>
+                </div>
+                <hr>
+                <h4 style="float: left;"><strong>{{ product.price|floatformat:2 }}</strong></h4>
+                <div class="price" style="margin-bottom: 10px;">
+                    <button data-product="{{ product.id }}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+                    <a class="btn btn-outline-success" href="{% url 'view' %}">View</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+
+
+{% comment %} <div class="row">
+    {% for product in catproducts %}
+    <h1 margin>Elevate Life with Our Brilliant {{ category.name}}</h1>
+        <div class="col-lg-3">
+            <div class="box-element product">
+                <img class="thumbnail" src="{{ product.imageURL }}">
+                <div class="heart" style="display: inline-block;">
+                    <h6><strong>{{ product.name }}</strong></h6>
+                </div>
+                <hr>
+                <h4 style="display: inline-block; float: left;"><strong>{{ product.price|floatformat:2 }}</strong></h4>
+                <div class="price" style="margin-bottom: 10px;">
+                    <button data-product="{{ product.id }}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+                    <a class="btn btn-outline-success" href="{% url 'view' %}">View</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div> {% endcomment %}
+{% endblock %}
